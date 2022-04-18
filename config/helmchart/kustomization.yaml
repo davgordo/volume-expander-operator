@@ -1,3 +1,4 @@
+# Adds namespace to all resources.
 namespace: release-namespace
 
 bases:
@@ -8,11 +9,11 @@ patchesJson6902:
     group: admissionregistration.k8s.io
     version: v1
     kind: MutatingWebhookConfiguration
-    name: vault-config-operator-mutating-webhook-configuration
+    name: patch-operator-mutating-webhook-configuration
   path: ./cert-manager-ca-injection.yaml
 - target:
     group: admissionregistration.k8s.io
     version: v1
     kind: ValidatingWebhookConfiguration
-    name: vault-config-operator-validating-webhook-configuration
+    name: patch-operator-validating-webhook-configuration
   path: ./cert-manager-ca-injection.yaml

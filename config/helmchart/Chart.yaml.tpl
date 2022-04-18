@@ -1,8 +1,8 @@
 apiVersion: v1
-name: volume-expander-operator
+name: patch-operator
 version: ${version}
 appVersion: ${version}
-description: Helm chart that deploys volume-expander-operator
+description: Helm chart that deploys patch-operator
 keywords:
   - volume
   - storage
@@ -10,5 +10,5 @@ keywords:
   - expansion
   - monitoring
 sources:
-  - https://github.com/redhat-cop/volume-expander-operator
+  - https://github.com/redhat-cop/patch-operator
 engine: gotpl

@@ -19,7 +19,7 @@ podAnnotations: {}
 resources:
   requests:
     cpu: 100m
-    memory: 20Mi
+    memory: 250Mi
 
 nodeSelector: {}
 
@@ -37,4 +37,5 @@ kube_rbac_proxy:
       cpu: 100m
       memory: 20Mi
 
-enableMonitoring: true      
+enableMonitoring: true
+enableCertMAnager: false

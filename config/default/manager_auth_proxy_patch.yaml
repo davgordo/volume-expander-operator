@@ -1,4 +1,4 @@
-# This patch inject a sidecar container which is a HTTP proxy for the 
+# This patch inject a sidecar container which is a HTTP proxy for the
 # controller manager, it performs RBAC authorization against the Kubernetes API using SubjectAccessReviews.
 apiVersion: apps/v1
 kind: Deployment
@@ -20,17 +20,17 @@ spec:
         - "--tls-private-key-file=/etc/certs/tls/tls.key"
         volumeMounts:
           - mountPath: /etc/certs/tls
-            name: tls-cert        
+            name: tls-cert              
         ports:
         - containerPort: 8443
           name: https
       - name: manager
         args:
         - "--health-probe-bind-address=:8081"
-        - "--metrics-addr=127.0.0.1:8080"
+        - "--metrics-bind-address=127.0.0.1:8080"
         - "--leader-elect"
       volumes:
-      - name: tls-cert
-        secret:
-          defaultMode: 420
-          secretName: volume-expander-operator-certs         
+        - name: tls-cert
+          secret:
+            defaultMode: 420
+            secretName: patch-operator-certs

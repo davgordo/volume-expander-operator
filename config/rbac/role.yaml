@@ -9,31 +9,69 @@ rules:
 - apiGroups:
   - ""
   resources:
-  - namespaces
+  - events
   verbs:
+  - create
   - get
+  - list
+  - patch
+  - watch
 - apiGroups:
   - ""
   resources:
-  - persistentvolumeclaims
+  - groups
+  - serviceaccounts
+  - users
   verbs:
+  - impersonate
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  - serviceaccounts
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - '*'
+  resources:
+  - '*'
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - apiextensions.k8s.io
+  resources:
+  - customresourcedefinitions
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - redhatcop.redhat.io
+  resources:
+  - patches
+  verbs:
+  - create
+  - delete
   - get
   - list
   - patch
   - update
   - watch
 - apiGroups:
-  - ""
+  - redhatcop.redhat.io
   resources:
-  - persistentvolumeclaims/status
+  - patches/finalizers
   verbs:
-  - get
+  - update
 - apiGroups:
-  - ""
+  - redhatcop.redhat.io
   resources:
-  - pods
+  - patches/status
   verbs:
-  - delete
   - get
-  - list
-  - watch
+  - patch
+  - update
